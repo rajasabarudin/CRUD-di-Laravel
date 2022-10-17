@@ -110,8 +110,8 @@
 		@endforeach
 		
     </table>
-	<br/>
+	<br>
 	<p>Halaman : {{ $karyawan->currentPage() }}  | Jumlah Data : {{ $karyawan->total() }} | Data Per Halaman : {{ $karyawan->perPage() }}</p>
-	{{ $karyawan->links() }}
+<p>{{ $karyawan->links() }}</p>
 </body>
 </html>

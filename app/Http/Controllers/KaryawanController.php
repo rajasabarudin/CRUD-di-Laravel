@@ -89,12 +89,12 @@ class KaryawanController extends Controller
 		$cari = $request->cari;
  
     		// mengambil data dari table karyawan sesuai pencarian data
-		$pegawai = DB::table('karyawan')
+		$karyawan = DB::table('karyawan')
 		->where('nama','like',"%".$cari."%")
 		->paginate();
  
     		// mengirim data karyawan ke view index
-		return view('index',['karyawan' => $pegawai]);
+		return view('index',['karyawan' => $karyawan]);
  
 	}
 }
