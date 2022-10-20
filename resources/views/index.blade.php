@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('container')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,113 +9,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
-	<!-- css tabel -->
-	<style>
-            table { 
-				border-collapse: collapse; 
-				}
-				{ 
-				width: 100%; 
-				} 
-				th 
-				{ height: 50px; }
-
-			b {
-				background-color:#228B22; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-
-				c {
-				background-color:#FF8C00; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-
-				d {
-				background-color:#B22222; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-
-				e {
-				background-color:#D2691E; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-				
-        </style>
+	
+	
     <title>Toko Sederhana</title>
 </head>
 <body align="center">
-	
 
-	<table align="center" width=40%> 
+<table class="table table-borderless"> 
 	<tr>
 	<td><h2>Data Karyawan Toko Sederhana</h2></td>
 	</tr>
 	
 	<tr>
-	<td><a href="/karyawan/tambah"><b align="center">+Tambah Data</b></a>|<a href="/laporan" target="_blank"><e align="center">Cetak Laporan</e></a></td>
+	<td><a href="/karyawan/tambah" class="btn btn-success">+Tambah Data</a>|<a href="/laporan" target="_blank" class="btn btn-primary"><e align="center">Cetak Laporan</e></a></td>
 	
 	</tr>
 	</table>
 	<br>
-	<form action="/karyawan/cari" method="GET">
-		<input type="text" name="cari" placeholder="Cari Nama Karyawan .." value="{{ old('cari') }}">
-		<input type="submit" value="CARI">
-	</form>
-<br>
 
-    <table border=1 align="center">
+<form action="/karyawan/cari" method="GET">
+<div class="input-group mb-3">
+	<input type="text" name="cari" class="form-control" placeholder="Cari Nama Karyawan .." value="{{ old('cari') }}">
+	<button class="btn btn-success" type="submit" value="CARI">CARI</button>
+</div>
+</form>
+	
+<table class="table table-striped">
+  <thead>
     <tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
-		</tr>
+      <th scope="col">#</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Jabatan</th>
+      <th scope="col">Umur</th>
+	  <th scope="col">Alamat</th>
+	  <th scope="col">Opsi</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      
+	  	<?php $no=1;?>
 		@foreach($karyawan as $p)
-		<tr>
+
+      		<th scope="col">{{ $no }}</th>
 			<td>{{ $p->nama }}</td>
 			<td>{{ $p->jabatan }}</td>
 			<td>{{ $p->umur }}</td>
 			<td>{{ $p->alamat }}</td>
 			<td>
-				<a href="/karyawan/edit/{{ $p->karyawan_id }}"><c>Edit</c></a> 
+				<a href="/karyawan/edit/{{ $p->karyawan_id }}" class="btn btn-warning"><c>Edit</c></a> 
 				|
-				<a href="/karyawan/hapus/{{ $p->karyawan_id }}"><d>Hapus</d></a> 
+				<a href="/karyawan/hapus/{{ $p->karyawan_id }}" class="btn btn-danger"><d>Hapus</d></a> 
 			</td>
-		</tr>
+    </tr>
+    	<?php $no++ ;?>
 		@endforeach
-		
-    </table>
-	<br>
-	<p>Halaman : {{ $karyawan->currentPage() }}  | Jumlah Data : {{ $karyawan->total() }} | Data Per Halaman : {{ $karyawan->perPage() }}</p>
-<p>{{ $karyawan->links() }}</p>
+
+  </tbody>
+</table>
+<div class="card-body">
+
+<div>
+	Halaman : {{ $karyawan->currentPage() }}  | 
+	Jumlah Data : {{ $karyawan->total() }} |
+	Data Per Halaman : {{ $karyawan->perPage() }}  
+	<p>{{ $karyawan->links() }}</p>
+	
+</div>
+
+</div>
+
+
 </body>
 </html>
+
+@endsection

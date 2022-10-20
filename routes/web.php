@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\StaffController; // panggil controller Staff
 use App\Http\Controllers\KaryawanController;
 
 /*
@@ -16,7 +18,15 @@ use App\Http\Controllers\KaryawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+     //   "title"=>"Home"
+    ]);
+});
+
+Route::get('profil', function () {
+    return view('profil', [
+     //   "title"=>"Home"
+    ]);
 });
 
 Route::get('karyawan',[KaryawanController::class, 'index']);
@@ -27,3 +37,4 @@ Route::post('/karyawan/update', [KaryawanController::class, 'update']);
 Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
 Route::get('laporan',[KaryawanController::class, 'laporan']);
 Route::get('karyawan/cari',[KaryawanController::class, 'cari']);
+

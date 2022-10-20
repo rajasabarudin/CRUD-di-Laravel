@@ -4,55 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	
-	<!-- css tabel -->
-	<style>
-            table { 
-				border-collapse: collapse; 
-				}
-				{ 
-				width: 100%; 
-				} 
-				th 
-				{ height: 50px; }
-
-			b {
-				background-color:#228B22; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-
-				c {
-				background-color:#FF8C00; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-
-				d {
-				background-color:#B22222; /* warna */
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				}
-				
-        </style>
     <title>Toko Sederhana</title>
 </head>
 <body align="center">
@@ -71,24 +24,36 @@
     
 <br>
 
-    <table border=1 align="center">
+   
+	<table class="table table-bordered" align="center">
+  <thead>
     <tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-		</tr>
+      <th scope="col">#</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Jabatan</th>
+      <th scope="col">Umur</th>
+	  <th scope="col">Alamat</th>
+	 
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      
+	  	<?php $no=1;?>
 		@foreach($karyawan as $p)
-		<tr>
-			<td align="left">{{ $p->nama }}</td>
-			<td align="left">{{ $p->jabatan }}</td>
-			<td align="center">{{ $p->umur }}</td>
-			<td align="left">{{ $p->alamat }}</td>
+
+      		<th scope="col">{{ $no }}</th>
+			<td>{{ $p->nama }}</td>
+			<td>{{ $p->jabatan }}</td>
+			<td>{{ $p->umur }}</td>
+			<td>{{ $p->alamat }}</td>
 			
-		</tr>
+    </tr>
+    	<?php $no++ ;?>
 		@endforeach
-         
-    </table>
-    <p>Dicetak di Pontianak, <?php echo date('l, d-m-Y  H:i:s'); ?></p>
+
+  </tbody>
+</table>
+    <p align="center">Dicetak di Pontianak, <?php echo date('l, d-m-Y  H:i:s'); ?></p>
 </body>
 </html>

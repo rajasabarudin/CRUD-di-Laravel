@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('container')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,10 @@
     <title>Toko Sederhana</title>
 </head>
 <body align="center">
-<h3>Input Data Karyawan</h3>
+<h3 align="center">Input Data Karyawan</h3>
+<br> <hr>
 
-<br><br>
+<br>
 
 <form action="/karyawan/store" method="post">
 {{ csrf_field() }}
@@ -40,12 +44,14 @@
     </tr>
 
     <tr>
-        <td><a href="/karyawan">Kembali</a></td>
+        <td><a href="/karyawan" class="btn btn-warning">Kembali</a></td>
         <td>|</td>
-        <td><input type="submit" value="Simpan Data"></td>
+        <td><input type="submit" value="Simpan Data" class="btn btn-success"></td>
     </tr>
 </table>
 </form>
     
 </body>
 </html>
+
+@endsection

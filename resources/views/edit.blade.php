@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('container')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,10 @@
 <form action="/karyawan/update" method="post">
 {{ csrf_field() }}
 <table align="center">
+
+    <tr>
+        <td align="center" colspan=3><h2>Edit Data Karyawan <br> <hr></h2></td>
+    </tr>
     <tr>
         <td colspan=3><input type="hidden" name="id" value="{{ $p->karyawan_id }}"></td>
     </tr>
@@ -40,12 +48,14 @@
     </tr>
 
     <tr>
-        <td><a href="/karyawan">Kembali</a></td>
-        <td>|</td>
-        <td><input type="submit" value="Update"></td>
+        <td align="center" colspan=3><a href="/karyawan" class="btn btn-success">Kembali</a>
+        |
+        <input type="submit" value="Update" class="btn btn-warning"></td>
     </tr>
 </table>
 </form>
 @endforeach
 </body>
 </html>
+
+@endsection

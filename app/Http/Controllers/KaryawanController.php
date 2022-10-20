@@ -11,7 +11,7 @@ class KaryawanController extends Controller
     public function index()
     {
         //fungsi pigination
-        $karyawan = DB::table('karyawan')->paginate(5);
+        $karyawan = DB::table('karyawan')->paginate(5)->withQueryString();
         //fungsi mengambil data dari tabel karyawan
      //   $karyawan = DB::table('karyawan')->get();
 
