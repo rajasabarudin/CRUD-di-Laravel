@@ -18,9 +18,7 @@ use App\Http\Controllers\KaryawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome', [
-     //   "title"=>"Home"
-    ]);
+    return view('welcome');
 });
 
 Route::get('profil', function () {
@@ -28,6 +26,8 @@ Route::get('profil', function () {
      //   "title"=>"Home"
     ]);
 });
+
+
 
 Route::get('karyawan',[KaryawanController::class, 'index']);
 Route::get('karyawan/tambah',[KaryawanController::class, 'tambah']);

@@ -1,4 +1,9 @@
-@extends('layouts.main')
+@extends('layouts.tema')
+
+@section('title')
+Profil Saya
+@endsection
+
 
 @section('container')
 
@@ -11,32 +16,21 @@
     <title>Toko Sederhana</title>
 </head>
 <body>
-    <h1>Profil Pengguna</h1>
-    <table>
-        <tr>
-            <td rowspan=4><img src="img/rjd.jpeg" alt="bang raje" width=200></td>
-        </tr>
-
-        <tr>
-            <td>Nama</td>
-            <td>:</td>
-            <td>bang raje</td>
-        </tr>
-
-        <tr>
-            <td>Email</td>
-            <td>:</td>
-            <td>raje@gmail.com</td>
-        </tr>
-
-        <tr>
-            <td>Contact</td>
-            <td>:</td>
-            <td>021-1234 5678</td>
-        </tr>
-    </table>
+<div class="container ">
+  <div class="row">
+    <div class="col-3"><img src="img/rjd.jpeg" alt="bang raje" width=200 class="img-thumbnail rounded float-start"></div>
+    <div class="col-6"> <b>Raja Sabaruddin</b> <br>Email : bangraje@gmail.com <br> <hr> <br>
+    <b>Deskripsi Diri</b>
     
+    <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis voluptatem amet quidem vero minus a, praesentium, repellat earum excepturi debitis iure quod inventore! Ab exercitationem ipsam laboriosam animi atque. Enim!
+    </p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+
+
 
 @endsection

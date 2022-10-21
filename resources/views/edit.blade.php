@@ -1,4 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.tema')
+
+@section('title')
+Profil Saya
+@endsection
 
 @section('container')
 

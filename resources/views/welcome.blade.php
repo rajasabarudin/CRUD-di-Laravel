@@ -1,7 +1,11 @@
-@extends('layouts.main') 
+@extends('layouts.tema') 
+
+@section('title')
+Halaman Beranda
+@endsection
 
 @section('container')
 
-<h1>halaman beranda</h1>
+ini halaman beranda
 
 @endsection

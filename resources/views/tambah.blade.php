@@ -1,4 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.tema')
+
+@section('title')
+Halaman Input Karyawan
+@endsection
 
 @section('container')
 <!DOCTYPE html>
@@ -9,44 +13,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Toko Sederhana</title>
 </head>
-<body align="center">
-<h3 align="center">Input Data Karyawan</h3>
-<br> <hr>
-
-<br>
+<body align="center" class="bg-gradient-primary">
 
 <form action="/karyawan/store" method="post">
 {{ csrf_field() }}
+
+
+
 <table align="center">
 
     <tr>
         <td>Nama</td>
         <td>:</td>
-        <td><input type="text" name="nama" required="required"></td>
+        <td>
+        <div class="col-sm-12 mb-12 mb-sm-12">
+            <input type="text" name="nama" class="form-control form-control-user"  placeholder="nama Lengkap">
+        </div>
+    </td>
     </tr>
 
     <tr>
         <td>Jabatan</td>
         <td>:</td>
-        <td><input type="text" name="jabatan" required="required"></td>
+        <td>
+            <div class="col-sm-12 mb-12 mb-sm-12">
+                <input type="text" name="jabatan" class="form-control form-control-user"  placeholder="jabatan">
+            </div>
+        </td>
     </tr>
 
     <tr>
         <td>Umur</td>
         <td>:</td>
-        <td><input type="number" name="umur" required="required"></td>
+        <td>
+                <div class="col-sm-12 mb-12 mb-sm-12">
+                    <input type="number" name="umur" class="form-control form-control-user"  placeholder="jabatan">
+                </div>
+        </td>
     </tr>
 
     <tr>
         <td>Alamat</td>
         <td>:</td>
-        <td><textarea name="alamat" required="required"></textarea></td>
+        <td>
+            <div class="mb-3">
+                <textarea name="alamat" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            </div>
+
+        </td>
     </tr>
 
     <tr>
-        <td><a href="/karyawan" class="btn btn-warning">Kembali</a></td>
+        <td><a href="/karyawan" class="btn btn-warning btn-user btn-block">Kembali</a></td>
         <td>|</td>
-        <td><input type="submit" value="Simpan Data" class="btn btn-success"></td>
+        <td><input type="submit" value="Simpan Data" class="btn btn-primary btn-user btn-block"></td>
     </tr>
 </table>
 </form>
