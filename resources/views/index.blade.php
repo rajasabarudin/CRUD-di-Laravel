@@ -85,6 +85,9 @@ Halaman Karyawan
 			<td>{{ $p->umur }}</td>
 			<td>{{ $p->alamat }}</td>
 			<td>
+					
+				
+					
 				<a href="/karyawan/edit/{{ $p->karyawan_id }}" class="btn btn-warning">Edit</a> 
 				|
 				<a href="/karyawan/hapus/{{ $p->karyawan_id }}" class="btn btn-danger">Hapus</a> 
